@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta de Regiões</title>
+</head>
+<body>
+    <h1>Consulta de Estados por Região</h1>
+    <form action="" method="get">
+        <label for="regiao">Escolha a Região:</label>
+        <select id="regiao" name="regiao">
+            <option value="1">Norte</option>
+            <option value="2">Nordeste</option>
+            <option value="3">Centro-Oeste</option>
+            <option value="4">Sudeste</option>
+            <option value="5">Sul</option>
+        </select>
+        <br><br>
+        <label for="ordem">Ordem:</label>
+        <select id="ordem" name="ordem">
+            <option value="asc">Ascendente</option>
+            <option value="desc">Descendente</option>
+        </select>
+        <br><br>
+        <input type="button" value="Listar Estados" onclick="listarEstados()">
+        <input type="button" value="Gerar CSV" onclick="gerarCSV()">
+    </form>
+
+    <script>
+        function listarEstados() {
+            var regiao = document.getElementById('regiao').value;
+            var ordem = document.getElementById('ordem').value;
+            window.location.href = '/' + regiao + '/estados?ordem=' + ordem;
+        }
+
+        function gerarCSV() {
+            var regiao = document.getElementById('regiao').value;
+            var ordem = document.getElementById('ordem').value;
+            window.location.href = '/' + regiao + '/csv?ordem=' + ordem;
+        }
+    </script>
+</body>
+</html>
